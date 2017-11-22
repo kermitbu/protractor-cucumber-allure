@@ -1,6 +1,6 @@
 class GoogleSearch{
     constructor(){
-        this.searchTextBox = $("#lst-ib");
+        this.searchTextBox = $("#lst-ibsdfd");
         this.searchButton = $("input[value='Google Search']");
     }
 }
