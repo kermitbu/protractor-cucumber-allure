@@ -23,7 +23,7 @@ exports.config = {
     strict: true,
     format: 'json:./reports/json/cucumber_report.json',
     require: ["../stepDefinitions/*.js", "../support/*.js"],
-    tags: "(@AllureScenario or @CucumberScenario or @ProtractorScenario) and (not @DatabaseTest)" // @DatabaseTest scenario can be included when the username & password of DB have been configured in Support/database.js
+    tags: "(@AllureScenario or @CucumberScenario or @ProtractorScenario or @KnabScenario) and (not @DatabaseTest)" // @DatabaseTest scenario can be included when the username & password of DB have been configured in Support/database.js
   },
   onComplete: function () {
     Reporter.createHTMLReport();
