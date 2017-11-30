@@ -29,7 +29,7 @@ function randArt(getal){
 }
 
 
-//Timeout
+//Timeout for Cucumber is 60 seconds
 var {defineSupportCode} = require('cucumber');
 
 defineSupportCode(function({setDefaultTimeout}) {
