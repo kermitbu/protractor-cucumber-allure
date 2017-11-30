@@ -28,19 +28,27 @@ function randArt(getal){
   return Math.floor(((Math.random() * getal) + 1)/2);
 }
 
+
+//Timeout
+var {defineSupportCode} = require('cucumber');
+
+defineSupportCode(function({setDefaultTimeout}) {
+  setDefaultTimeout(60 * 1000);
+});
+
 //functions for text and element assertion
 function assertText(text) {
-  var selector = element(by.xpath("//*[. = '"+ text +"']"));
-  browser.wait(EC.presenceOf($("//*[. = '"+ text +"']")), 5000)
+  // var selector = element(by.xpath("//*[. = '"+ text +"']"));
+  browser.wait(EC.presenceOf($("//*[. = '"+ text +"']")), 50000)
   .then(function(){
   }, function(){
-      expect(selector.isPresent()).to.eventually.equal(true, "" + text + " is not present.");
+      expect(element(by.xpath("//*[. = '"+ text +"']")).isPresent()).to.eventually.equal(true, "" + text + " is not present.");
   });
 }
 
 function assertElement(css) {
   // var selector = element(by.css(""+ css +""));
-  browser.wait(EC.presenceOf($(""+ css +"")), 5000)
+  browser.wait(EC.presenceOf($(""+ css +"")), 50000)
   .then(function(){
   }, function(){
       expect(element(by.css(""+ css +"")).isPresent()).to.eventually.equal(true, "" + css + " is not present.");
@@ -49,7 +57,7 @@ function assertElement(css) {
 
 function sendString(css, text) {
   var selector = element(by.css(""+ css +""));
-  browser.wait(EC.presenceOf($(""+ css +"")), 500)
+  browser.wait(EC.presenceOf($(""+ css +"")), 50000)
     .then(function(){
     }, function(){
         expect(selector.isPresent()).to.eventually.equal(true, "" + css + " is not present.");
@@ -84,16 +92,19 @@ function randomVancancie(css, attribute) {
   
 
   Then('I search for {string}', function (string) {
+    // browser.pause();
     //Send input from string to the search field
-    sendString('#search-input', string);    
+    sendString('#search-input', string);  
     //Click on the "Bekijk vacatures"-button to search
     assertElement('#filter-submit-label')
     var result = element(By.css('#filter-submit-label'));
+    console.log('test');
     return result.click();;
   });
 
   Then('I should assert if {string} is found', function (string) {
   //Assert if the page contains the string from the test scenario
+  console.log('test1');  
   return assertText(string);
 
   });
