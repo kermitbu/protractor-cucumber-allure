@@ -7,7 +7,7 @@ Feature: Searching for vacancies
   Scenario: Searching for a vacature
     Given I am on the "https://www.werkenbijknab.nl/" homepage and assert "ONTDEK OF WIJ OP ZOEK ZIJN NAAR JOU!"
     And I search for "HBO"
-    And I should assert if "Kak op mijn hoofd" is found
+    And I should assert if "Contractvorm" is found
     Then I click on a random vacancie
     And I click on Solliciteer
     And I fill in the form with "Name", "Last name", "E-mail", "Mobile number" and "Motivation"
