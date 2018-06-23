@@ -35,6 +35,6 @@ exports.config = {
     strict: true,
     format: ["pretty"],
     require: ["../stepDefinitions/*.js", "../support/*.js"],
-    tags: "@CucumberScenario,@ProtractorScenario,@AllureScenario,~@DatabaseTest"
+    tags: "@CucumberScenario,@ProtractorScenario,@AllureScenario,@KnabScenario,~@DatabaseTest"
   }
 };

@@ -3,7 +3,7 @@
 const { BeforeAll, After, Status } = require("cucumber");
 const conf = require("../config/config").config;
 
-    BeforeAll({timeout: 10*1000}, function() {
+    BeforeAll({timeout: 50*1000}, function() {
       return browser.get(conf.baseUrl);
     });
   

@@ -64,7 +64,7 @@ class Reporter {
     Reporter.createDirectory(xmlReports);
     allureReporter.config({
       targetDir: xmlReports
-    })
+    });
   }
 }
 module.exports = Reporter;
